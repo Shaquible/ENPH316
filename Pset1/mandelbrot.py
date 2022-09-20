@@ -15,14 +15,14 @@ def mandelbrotEsq(a, b, n, thresh):
     return True
 
 
-n = 400
+n = 1000
 a = np.linspace(-10, 10, n)
 b = np.linspace(-10, 10, n)
 
 # check if the point is in the mandelbrot set and if it is plot it on the graph
 for i in range(n):
     for j in range(n):
-        if mandelbrotEsq(a[i], b[j], 5, 100):
+        if mandelbrotEsq(a[i], b[j], 15, 1000):
             plt.plot(a[i], b[j], 'k.', markersize=0.3)
 plt.xlim(-10, 10)
 plt.ylim(-10, 10)
