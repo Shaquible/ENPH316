@@ -1,3 +1,4 @@
+# julia.py
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -20,6 +21,9 @@ b = 0.18
 n = 1000
 x = np.linspace(-2, 2, n)
 y = np.linspace(-2, 2, n)
+# check if the point is in the julia set and if it is plot it on the graph
+# 15 iterations of the function are done and it is removed from the set if the
+# magnitude of the point is greater than 1000
 for i in range(n):
     for j in range(n):
         if julia(x[i], y[j], a, b, 15, 1000):
@@ -28,3 +32,4 @@ for i in range(n):
 plt.xlim(-2, 2)
 plt.ylim(-2, 2)
 plt.show()
+plt.savefig('julia.png')

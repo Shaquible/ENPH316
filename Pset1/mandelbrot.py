@@ -1,3 +1,4 @@
+# mandelbrot.py
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -20,10 +21,12 @@ a = np.linspace(-10, 10, n)
 b = np.linspace(-10, 10, n)
 
 # check if the point is in the mandelbrot set and if it is plot it on the graph
+# 15 iterations of the function are done and it is removed from the set if the
+# magnitude of the point is greater than 500
 for i in range(n):
     for j in range(n):
-        if mandelbrotEsq(a[i], b[j], 15, 1000):
+        if mandelbrotEsq(a[i], b[j], 15, 500):
             plt.plot(a[i], b[j], 'k.', markersize=0.3)
 plt.xlim(-10, 10)
 plt.ylim(-10, 10)
-plt.show()
+plt.savefig('mandelbrot.png')
