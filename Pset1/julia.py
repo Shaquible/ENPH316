@@ -18,18 +18,18 @@ def julia(x, y, a, b, n, thresh):
 a = -0.83
 b = 0.18
 
-n = 1000
+n = 2000
 x = np.linspace(-2, 2, n)
 y = np.linspace(-2, 2, n)
+sucsess = np.zeros((n, n))
 # check if the point is in the julia set and if it is plot it on the graph
 # 15 iterations of the function are done and it is removed from the set if the
 # magnitude of the point is greater than 1000
 for i in range(n):
     for j in range(n):
-        if julia(x[i], y[j], a, b, 15, 1000):
-            plt.plot(x[i], y[j], 'k.', markersize=0.3)
-
+        sucsess[j][i] = julia(x[i], y[j], a, b, 15, 1000)
+# plot the points with a histogram
+plt.imshow(sucsess, cmap='afmhot', extent=[-2, 2, -2, 2])
 plt.xlim(-2, 2)
 plt.ylim(-2, 2)
-plt.show()
-plt.savefig('julia.png')
+plt.savefig('julia.png', dpi=800)
